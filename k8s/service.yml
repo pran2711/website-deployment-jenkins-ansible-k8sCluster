@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: web_service
+  name: webservice
 spec:
   selector:
     web: production
