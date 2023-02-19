@@ -2,6 +2,6 @@
   become: true
   tasks: 
      - name: create new deployment
-       command: kubectl delete -f /home/ans/depl.yml
+       command: kubectl delete -f /var/depl.yml
      - name: create new service
-       command: kubectl delete -f /home/ls/service.yml
+       command: kubectl delete -f /var/service.yml
