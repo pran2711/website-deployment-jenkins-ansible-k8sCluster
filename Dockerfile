@@ -2,5 +2,5 @@ FROM  alpine
 RUN apk update 
 RUN apk add apache2
 COPY . /var/www/html/
-ENTRYPOINT ["service", "apache2", "start"]
+CMD  [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
 EXPOSE 8080
