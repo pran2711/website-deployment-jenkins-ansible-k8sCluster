@@ -16,4 +16,4 @@ spec:
       - name: mywebsite
         image: "docops27/jenkins-k8s-pipeline:latest"
         ports:
-          - containerPort: 8080
+          - containerPort: 80
