@@ -1,5 +1,5 @@
 FROM  centos:latest
 RUN yum install httpd -y
 COPY /var/lib/jenkins/workspace/k8sjenkins-pipeline/* /var/www/html/
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 8080
