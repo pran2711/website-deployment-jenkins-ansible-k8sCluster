@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: web-deployment
+spec:
+  selector:
+    matchLabels:
+      web: production
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        web: production
+    spec:
+      containers:
+      - name: moderna
+        image: ""
+        ports:
+          - containerPort: 8080
