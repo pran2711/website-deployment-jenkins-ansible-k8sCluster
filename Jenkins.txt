@@ -21,22 +21,22 @@ node {
   stage("copying ansible playbook to ansible server"){
       sshagent(['ansible']) {
     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.200 cd /home/ec2-user'
-    sh 'scp -r /var/lib/jenkins/workspace/Pipeline k8s-jenkins-ansible-website/playbook.yml ec2-user@172.31.43.200:/home/ec2-user'
+    sh 'scp -r /var/lib/jenkins/workspace/k8s-jenkins-ansible-website/playbook.yml ec2-user@172.31.43.200:/home/ec2-user'
 }
   }
     
      stage("copying k8s files to k8s master"){
       sshagent(['ansible']) {
     sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.95.120 cd /home/ec2-user'
-    sh 'scp -r /var/lib/jenkins/workspace/Pipeline k8s-jenkins-ansible-website/k8s/depl.yml ec2-user@13.233.95.120:/home/ec2-user'
-    sh 'scp -r /var/lib/jenkins/workspace/Pipeline k8s-jenkins-ansible-website/k8s/service.yml ec2-user@13.233.95.120:/home/ec2-user'
+    sh 'scp -r /var/lib/jenkins/workspace/k8s-jenkins-ansible-website/k8s/depl.yml ec2-user@13.233.95.120:/home/ec2-user'
+    sh 'scp -r /var/lib/jenkins/workspace/k8s-jenkins-ansible-website/k8s/service.yml ec2-user@13.233.95.120:/home/ec2-user'
       }
   }
   
    stage("running playbook"){
       sshagent(['ansible']) {
     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.200 cd /home/ec2-user'
-    sh 'ansible-playbook playbook.yml'
+    sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.200 ansible-playbook playbook.yml'
      }
 }
  
