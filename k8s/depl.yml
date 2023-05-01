@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mywebsite
-        image: "docops27/k8s-jenkins-ansible-website:latest"
+        image: "docops27/pipeline-k8s-jenkins:latest"
         ports:
           - containerPort: 80
